@@ -1,0 +1,37 @@
+body {
+  background-color: Black;
+  text-align: center;
+}
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+  font-family: Helvetica;
+  color: #548CFF;
+}
+
+h2 {
+  font-size: 28px;
+  font-family: Helvetica;
+}
+
+h3 {
+  font-size: 18px;
+  font-family: Helvetica;
+}
+
+p {
+  font-family: Helvetica;
+  padding: 0% 10% 0% 10%;
+  color: #548CFF;
+}
+
+a {
+  font-family: Helvetica;
+  text-decoration: none;
+  color: #93FFD8;
+}
+
+a:hover {
+  color: #7900FF;
+}
