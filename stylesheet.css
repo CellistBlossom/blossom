@@ -96,3 +96,13 @@ a:hover {
 .dropdown:hover .dropdown-content {
  display: block;
 }
+
+.blog-main {
+  text-align: left;
+  padding: 0% 20% 0% 20%
+}
+
+.signature {
+  text-align: right;
+  font-style: italic;
+}
