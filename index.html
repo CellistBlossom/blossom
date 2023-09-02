@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
   <link rel="manifest" href="favicon/site.webmanifest">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <style media="screen">
 .userbox-container {
   padding: 3% 20% 0% 20%
@@ -24,11 +25,12 @@
 </head>
 
 <body>
-  <div class="navbar">
-    <a href="index">Home</a>
-    <a href="about">About</a>
-    <a href="links">Links</a>
-    <a href="mystar">My Star</a>
+  <script>
+    $(document).ready(function(){
+        $("#navbar").load("nav.html");
+    });
+  </script>
+  <div id="navbar">
   </div>
   <img src="images/BlossomLove.png" alt="A blue caterpillar holding a heart." height="150px" width="150px">
   <h1>Blossom's Place</h1>
