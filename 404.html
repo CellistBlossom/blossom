@@ -8,16 +8,18 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
     <link rel="manifest" href="/favicon/site.webmanifest">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   </head>
   <body>
-    <div class="navbar">
-      <a href="/index">Home</a>
-      <a href="/about">About</a>
-      <a href="/links">Links</a>
-      <a href="/mystar">My Star</a>
+    <script>
+      $(document).ready(function(){
+          $("#navbar").load("nav.html");
+      });
+    </script>
+    <div id="navbar">
     </div>
     <h1>404 :(</h1>
     <p>Well, this is awkward.</p>
-    <p>Whatever page you were looking for doesn't exist here. Try the navigation menu up top?</p>
+    <p>Whatever page you were looking for doesn't exist here. Maybe the navigation bar above has something more useful.</p>
   </body>
 </html>
