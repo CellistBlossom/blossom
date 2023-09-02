@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sheets</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style media="screen">
+
+      .interactable-player-container {
+        display: grid;
+        grid-template-columns: 50px 50px 50px;
+        justify-content: center;
+      }
+
+      #play-icon {
+        background: #7900FF;
+        cursor: pointer;
+        width: 150px;
+        height: 150px;
+        border-radius: 90px;
+        outline: solid;
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+      }
+
+      #mute-icon {
+        background: #93FFD8;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        border-radius: 70px;
+        outline: solid;
+        grid-row: 3 / span 1;
+        grid-column: 5 / span 1;
+      }
+
+      #volume-output {
+        font-size: 20px;
+        text-align: center;
+        font-family: "Josefin Sans", sans-serif;
+        grid-column: 4 / span 1;
+        grid-row: 3 / span 1;
+      }
+
+      #volume-slider {
+        background-color: transparent;
+        width: 100px;
+        grid-column: 4 / span 1;
+        grid-row: 1 / span 2;
+      }
+
+      #volume-slider::-webkit-slider-runnable-track {
+        background: skyblue;
+      }
+
+      #volume-slider::-moz-range-track {
+        background: skyblue;
+      }
+
+      #volume-slider::-ms-fill-upper {
+        background: skyblue;
+      }
+
+      #volume-slider::before {
+        width: var(--volume-before-width);
+      }
+
+      #mute-icon {
+        margin: 0 2.5%;
+      }
+
+
+      input[type=range] {
+        -webkit-transform: rotate(270deg);
+      }
+
+      .downloadbutton:hover {
+        background-color: #3EDADA;
+      }
+
+      .downloadbutton a {
+        color: black;
+      }
+
+      .downloadbutton a:hover {
+        color: #7900FF;
+      }
+
+      .downloadbutton {
+        background-color: white;
+        padding: 16px;
+        font-size: 20px;
+        border: none;
+        font-family: "Josefin Sans", sans-serif;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      $(document).ready(function(){
+          $("#navbar").load("/nav.html");
+      });
+    </script>
+    <div id="navbar">
+    </div>
+    <h1>Sheets and Stuff</h1>
+    <p>Here you'll find a collection of sheet music for songs I've arranged!</p>
+    <script>
+      $(document).ready(function(){
+          $("#sheetsnav").load("sheetsnav.html");
+      });
+    </script>
+    <div id="sheetsnav">
+    </div>
+    <h2>Hornet (Piano Solo)</h2>
+    <script type="module">
+      import lottieWeb from 'https://cdn.skypack.dev/lottie-web';
+      const playIconContainer = document.getElementById('play-icon');
+      const audioPlayerContainer = document.getElementById('audio-player-container');
+      const volumeSlider = document.getElementById('volume-slider');
+      const muteIconContainer = document.getElementById('mute-icon');
+      let playState = 'play';
+      let muteState = 'unmute';
+
+      const playAnimation = lottieWeb.loadAnimation({
+        container: playIconContainer,
+        path: 'https://maxst.icons8.com/vue-static/landings/animated-icons/icons/pause/pause.json',
+        renderer: 'svg',
+        loop: false,
+        autoplay: false,
+        name: "Play Animation",
+      });
+
+
+      const muteAnimation = lottieWeb.loadAnimation({
+        container: muteIconContainer,
+        path: 'https://maxst.icons8.com/vue-static/landings/animated-icons/icons/mute/mute.json',
+        renderer: 'svg',
+        loop: false,
+        autoplay: false,
+        name: "Mute Animation",
+      });
+
+      muteIconContainer.addEventListener('click', () => {
+        if (muteState === 'unmute') {
+          muteAnimation.playSegments([0, 15], true);
+          audio.muted = true;
+          muteState = 'mute';
+        } else {
+          muteAnimation.playSegments([15, 25], true);
+          audio.muted = false;
+          muteState = 'unmute';
+        }
+      });
+
+      playAnimation.goToAndStop(14, true);
+
+      // adds an event listener to the button so that when it is clicked, the the player toggles between play and pause
+      playIconContainer.addEventListener('click', () => {
+        if (playState === 'play') {
+          audio.play();
+          playAnimation.playSegments([14, 27], true);
+          playState = 'pause';
+        } else {
+          audio.pause();
+          playAnimation.playSegments([0, 14], true);
+          playState = 'play';
+        }
+      });
+      const audio = document.querySelector('audio');
+      const outputContainer = document.getElementById('volume-output');
+      let raf = null;
+
+
+      volumeSlider.addEventListener('input', (e) => {
+        const value = e.target.value;
+
+        outputContainer.textContent = value;
+        audio.volume = value / 100;
+      });
+    </script>
+    <div id=”audio-player-container”>
+      <audio id="audio" preload=”metadata” loop>
+        <source src="files/carol_of_the_bells.mp3" type="audio/mp3">
+      </audio>
+      <div class="interactable-player-container">
+        <button id="play-icon"></button>
+        <input type="range" id="volume-slider" max="100" value="100">
+        <output id="volume-output">100</output>
+        <button id="mute-icon"></button>
+      </div>
+    </div>
+    <div class="downloadmenu">
+      <button class="downloadbutton" onclick="location.href='files/carol_of_the_bells.pdf'"><a href="files/carol_of_the_bells.pdf">PDF</a> </button>
+      <button class="downloadbutton" onclick="location.href='files/carol_of_the_bells.mscz'"><a href="files/carol_of_the_bells.mscz">MSCZ</a> </button>
+      <button class="downloadbutton" onclick="location.href='files/carol_of_the_bells.mscz'"><a href="files/carol_of_the_bells.mscz">MIDI</a> </button>
+    </div>
+  </body>
+</html>
