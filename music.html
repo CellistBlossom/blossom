@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Music and Stuff</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <script>
+      $(document).ready(function(){
+          $("#navbar").load("nav.html");
+      });
+    </script>
+    <div id="navbar">
+    </div>
+    <div class="subnavmenu">
+      <button class="submenubtn" onclick="location.href='/music/sheets'"><a href="/music/sheets">Sheets</a> </button>
+      <button class="submenubtn" onclick="location.href='/music/soundfonts'"><a href="/music/soundfonts">Soundfonts</a> </button>
+    </div>
+      <img src="images/BlossomLove.png" alt="A blue caterpillar holding a heart." height="150px" width="150px">
+      <h1>Music Stuff</h1>
+      <p>I've been playing piano basically my whole life and picked up cello on the way. Check out the tabs above for stuff I've created!</p>
+  </body>
+</html>
