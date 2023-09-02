@@ -11,6 +11,7 @@ h1 {
 }
 
 h2 {
+  color: #548CFF;
   font-size: 28px;
   font-family: Helvetica;
 }
@@ -106,3 +107,71 @@ a:hover {
   text-align: right;
   font-style: italic;
 }
+
+  .interactable-player-container {
+    display: grid;
+    grid-template-columns: 50px 50px 50px;
+    justify-content: center;
+  }
+
+  #play-icon {
+    background: transparent;
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    border-radius: 90px;
+    outline: solid;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+  }
+
+  #mute-icon {
+    background: skyblue;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 70px;
+    outline: solid;
+    grid-row: 3 / span 1;
+    grid-column: 5 / span 1;
+  }
+
+  #volume-output {
+    font-size: 20px;
+    text-align: center;
+    font-family: "Josefin Sans", sans-serif;
+    grid-column: 4 / span 1;
+    grid-row: 3 / span 1;
+  }
+
+  #volume-slider {
+    background-color: transparent;
+    width: 100px;
+    grid-column: 4 / span 1;
+    grid-row: 1 / span 2;
+  }
+
+  #volume-slider::-webkit-slider-runnable-track {
+    background: skyblue;
+  }
+
+  #volume-slider::-moz-range-track {
+    background: skyblue;
+  }
+
+  #volume-slider::-ms-fill-upper {
+    background: skyblue;
+  }
+
+  #volume-slider::before {
+    width: var(--volume-before-width);
+  }
+
+  #mute-icon {
+    margin: 0 2.5%;
+  }
+
+
+  input[type=range] {
+    -webkit-transform: rotate(270deg);
+  }
