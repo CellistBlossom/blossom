@@ -1,26 +1,45 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Soundfonts</title>
-    <link rel="stylesheet" href="../stylesheet.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  </head>
-  <body>
-    <script>
-      $(document).ready(function(){
-          $("#navbar").load("/nav.html");
-      });
-    </script>
-    <div id="navbar">
+
+<head>
+  <meta charset="utf-8">
+  <title>Soundfonts</title>
+  <link rel="stylesheet" href="../stylesheet.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <style media="screen">
+    .soundfonts-container {
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .soundfonts {
+       width: 1000px;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    $(document).ready(function() {
+      $("#navbar").load("/nav.html");
+    });
+  </script>
+  <div id="navbar">
+  </div>
+  <h1>Soundfonts</h1>
+  <p>This page is dedicated to soundfonts I've created! Right now there's not a lot here, but there might be more in the future. Click the links below to download them!</p>
+  <div class="soundfonts-container">
+    <div class="soundfonts">
+      <p> <a href="files/chicken.sf2">Chicken Soundfont</a> - Mostly made as a joke, not really intended to sound great. Includes two presets with slightly different chicken sound samples and not much else. </p>
+      <p> <a href="files/GrubV1.2.sf2">Grub Version 1.2</a> - Grubby! Uses samples of grub sounds from Hollow Knight. Includes two samples and two presets: grub chorus and grub solo.</p>
     </div>
-    <h1>Soundfonts</h1>
-    <p>This page is dedicated to soundfonts I've created! Right now there's not a lot here, but there might be more in the future. Click the links below to download them!</p>
-    <p> <a href="files/chicken.sf2">Chicken Soundfont</a> - Mostly made as a joke, not really intended to sound great. Includes two presets with slightly different chicken sound samples and not much else. </p>
-    <p> <a href="files/GrubV1.2.sf2">Grub Version 1.2</a> - Grubby! Uses samples of grub sounds from Hollow Knight. Includes two samples and two presets: grub chorus and grub solo.</p>
-  </body>
+  </div>
+</body>
+
 </html>
