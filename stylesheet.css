@@ -115,7 +115,7 @@ a:hover {
   }
 
   #play-icon {
-    background: transparent;
+    background: #7900FF;
     cursor: pointer;
     width: 150px;
     height: 150px;
@@ -126,7 +126,7 @@ a:hover {
   }
 
   #mute-icon {
-    background: skyblue;
+    background: #93FFD8;
     cursor: pointer;
     width: 50px;
     height: 50px;
