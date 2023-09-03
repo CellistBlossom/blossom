@@ -109,12 +109,16 @@
     </script>
     <div id="navbar">
     </div>
-    <div class="subnavmenu">
-      <button class="submenubtn" onclick="location.href='/music/sheets'"><a href="/music/sheets">Sheets</a> </button>
-      <button class="submenubtn" onclick="location.href='/music/soundfonts'"><a href="/music/soundfonts">Soundfonts</a> </button>
+    <script>
+      $(document).ready(function(){
+          $("#navbar").load("musicsubnav.html");
+      });
+    </script>
+    <div id="musicsubnavmenu">
     </div>
     <h1>Sheets and Stuff</h1>
     <p>Here you'll find a collection of sheet music for songs I've arranged!</p>
+    <p>If you use these sheets for something, please credit me under the name "BlossomtheCellist"! (also, I'd really love it if you <a href="mailto:blossomthecellist@gmail.com">emailed me</a> or contacted me through any of my <a href="/links">socials</a> so I can fawn over you!)</p>
     <script>
       $(document).ready(function(){
           $("#sheetsnav").load("sheetsnav.html");
